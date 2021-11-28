@@ -42,8 +42,9 @@ path_output = path_output.strip('"')
 lines = read_lines(path_input)
 
 with open(path_output, mode='w', encoding="utf8") as file:
+    file.write('"word","gender"\n')
     for line in lines:
         result = check_line(line)
         if result is not None:
-            file.write(result[1] + ";" + str(result[0]) + "\n")
+            file.write('"' + result[1] + '",' + str(result[0]) + '\n')
 
